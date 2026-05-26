@@ -1,5 +1,8 @@
-import React from 'react'
-import{NavbarStyles} from '../assets/dummyStyles';
+import React, { useState, useRef } from 'react';
+import{navbarStyles} from '../assets/dummyStyles';
+import {useLocation, useNavigate, Link} from 'react-router-dom';
+import {useClerk} from '@clerk/react';
+import logo from '../assets/Logo1.png';
 
 const STORAGE_KEY = "doctorToken_v1";
 
@@ -19,16 +22,44 @@ const Navbar = () => {
   const clerk = useClerk();
   const navigate = useNavigate();
 
+
+    const navItems = [
+    { label: "Home", href: "/" },
+    { label: "Doctors", href: "/doctors" },
+    { label: "Services", href: "/services" },
+    { label: "Appointments", href: "/appointments" },
+    { label: "Contact", href: "/contact" },
+  ];
+
   return (
     <>
     <div className={navbarStyles.navbarBorder}>
     </div>
-    < nav className={`${NavbarStyles.navbarContainer} ${
+    <nav className={`${navbarStyles.navbarContainer} ${
         showNavbar ? navbarStyles.navbarVisible : navbarStyles.navbarHidden
     }`}>
+      <div className={navbarStyles.contentWrapper}>
+        <div className={navbarStyles.flexContainer}>
+          {/* logo */}
+          <Link to="/" className={navbarStyles.logoLink}>
+          <div className={navbarStyles.logoContainer}>
+            <div className={navbarStyles.logoImageWrapper}>
+              <img 
+              src={logo} 
+              alt="Logo" 
+              className={navbarStyles.logoImage} />
+              </div>
+              </div>          
+              <div className={navbarStyles.logoTextContainer}>
+                <h1 className={navbarStyles.logoTitle}>Medi-B</h1>
+                <p className={navbarStyles.logoSubtitle}>Healthcare Solutions</p>
+              </div>
+          </Link>
+        </div>
+      </div>
     </nav>
     </>
-  )
-}
+  );
+};
 
 export default Navbar
