@@ -1,5 +1,6 @@
 import Doctor from "../models/Doctor.js";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
 import {uploadToCloudinary, deleteFromCloudinary} from "../utils/cloudinary.js";
 
 
@@ -76,14 +77,14 @@ export const createDoctor = async (req, res) => {
         message: "Email already exists"
       });
     }
-    let imageUrl = body.imageUrl || NULL;
-    let imagePublicId = body.imagePublicId || NULL;
+    let imageUrl = body.imageUrl || null;
+    let imagePublicId = body.imagePublicId || null;
     if(req.file?.path){
       const uploaded = await uploadToCloudinary(req.file.path, "doctors");
-      imageUrl = uploaded?.secure_url || imageUrl || uploaded?.url || NULL;
-      imagePublicId = uploaded?.public_id || imagePublicId || uploaded?.publicId || NULL;
+      imageUrl = uploaded?.secure_url || imageUrl || uploaded?.url || null;
+      imagePublicId = uploaded?.public_id || imagePublicId || uploaded?.publicId || null;
     }
-    const scehedule = parseScheduleInput(body.schedule);
+    const schedule = parseScheduleInput(body.schedule);
 
     // createDoctor
     const doc = new Doctor({
@@ -109,11 +110,11 @@ export const createDoctor = async (req, res) => {
     if(!secret){
       console.warn("JWT secret not configured in environment variables");
       return res.status(500).json({
-        success: false, 
+        success: false,
         message: "JWT secret not configured"
       });
     }
-    const token = jwt.sign({ id: doc._id, email: doc.email,role:"doctor" }, secret, { expiresIn: "7d" });
+    const token = jwt.sign({ id: doc._id, email: doc.email, role: "doctor" }, secret, { expiresIn: "7d" });
 
     const out = normalizeDocForClient(doc.toObject());
     delete out.password;
@@ -353,27 +354,31 @@ export async function loginDoctor(req, res) {
       });
     }
     const doc = await Doctor.findOne({ email: email.toLowerCase() }).select("+password");
-    if (!doc) 
+    if (!doc) {
       return res.status(401).json({ 
         success: false, 
         message: "Invalid email or password" });
+    }
 
-        if (doc.password !== password) {
-          return res.status(401).json({ 
-            success: false, 
-            message: "Invalid email or password" });
-        }
-const secret = process.env.JWT_SECRET;
-if(!secret)
-  console.warn("JWT secret not configured in environment variables");
-  return res.status(500).json({
-    success: false, 
-    message: "JWT secret not configured"
-  });
-const token = jwt.sign({ 
-  id: doc._id.toString(), email: doc.email, 
-  role: "doctor"
- }, secret, { expiresIn: "7d" });
+    if (doc.password !== password) {
+      return res.status(401).json({ 
+        success: false, 
+        message: "Invalid email or password" });
+    }
+
+    const secret = process.env.JWT_SECRET;
+    if(!secret) {
+      console.warn("JWT secret not configured in environment variables");
+      return res.status(500).json({
+        success: false, 
+        message: "JWT secret not configured"
+      });
+    }
+
+    const token = jwt.sign({ 
+      id: doc._id.toString(), email: doc.email, 
+      role: "doctor"
+    }, secret, { expiresIn: "7d" });
  const out = doc.toObject();
  delete out.password;
  return res.json({ 

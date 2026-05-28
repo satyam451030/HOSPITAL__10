@@ -1,9 +1,10 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+
 import { clerkMiddleware } from '@clerk/express';
 import { connectDB } from './config/db.js';
-
+import doctorRouter from './routes/doctorRouter.js';
 
 dotenv.config();
 
@@ -25,8 +26,24 @@ const startServer = async () => {
     await connectDB();
 
     // Routes
+    app.use("/api/doctors", doctorRouter);
+
+
     app.get('/', (req, res) => {
         res.json({ message: 'Backend is running' });
+    });
+
+    // Error handler for invalid JSON and other express middleware errors
+    app.use((err, req, res, next) => {
+        if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
+            return res.status(400).json({
+                success: false,
+                message: 'Invalid JSON payload. Please send valid JSON in the request body.'
+            });
+        }
+
+        console.error('Express error:', err);
+        res.status(500).json({ success: false, message: 'Internal server error' });
     });
 
     app.listen(PORT, () => {
