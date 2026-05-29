@@ -1,5 +1,5 @@
-import Service from "../models/Service";
-import {uploadToCloudinary, deleteFromCloudinary} from "../utils/cloudinaryUtils.js";
+import Service from "../models/Service.js";
+import { uploadToCloudinary, deleteFromCloudinary } from "../utils/cloudinary.js";
 
 // Helper function to handle image upload and deletion
 const parseJsonArrayField = (field) => {
@@ -82,7 +82,7 @@ export async function createService(req, res) {
       slots,
       instructions,
     });
-    const saved = await Service.save();
+    const saved = await service.save();
     res.status(201).json({ 
         success: true,
          data: saved ,

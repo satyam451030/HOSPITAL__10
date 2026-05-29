@@ -28,7 +28,7 @@ const ServiceSchema = new moongoose.Schema({
     
 });
 
-serviceSchema.index({ name: 'text', about: 'text', shortDescription: 'text' });
+ServiceSchema.index({ name: 'text', about: 'text', shortDescription: 'text' });
 
 const Service = moongoose.models.Service || moongoose.model('Service', ServiceSchema);
 export default Service;
