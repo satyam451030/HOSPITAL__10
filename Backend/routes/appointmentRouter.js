@@ -16,4 +16,5 @@ appointmentRouter.post("/:id/cancel", cancelAppointment);
 appointmentRouter.get('/patients/count', getRegisterUserCount);
 appointmentRouter.put("/:id", updateAppointment);
 
+
 export default appointmentRouter;

@@ -1,5 +1,5 @@
-import Appointment from '../models/appointmentModel.js';
-import Doctor from '../models/doctorModel.js';
+import Appointment from '../models/Appointment.js';
+import Doctor from '../models/Doctor.js';
 import dotenv from 'dotenv';
 import Stripe from 'stripe';
 
@@ -7,11 +7,10 @@ import { getAuth} from "@clerk/express";
 import {clerkClient} from "@clerk/clerk-sdk-node";
 
 dotenv.config();
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const FRONTEND_URL = process.env.FRONTEND_URL ;
 const MAJOR_ADMIN_ID = process.env.MAJOR_ADMIN_ID;
- // Replace with actual major admin ID from Clerk
- const stripe = STRIPE_KEY ? newStripe(STRIPE_KEY, {apiVersion: "2023-10-16"}) : null;
+const stripeKey = process.env.STRIPE_SECRET_KEY || null;
+const stripe = stripeKey ? new Stripe(stripeKey, { apiVersion: "2023-10-16" }) : null;
 
 //  Helpers
 const safeNumber = (v) => {
@@ -45,7 +44,7 @@ function resolveClerkUserId(req) {
 }
 
 // to get appointments for a doctor
-export const getDoctorAppointments = async (req, res) => {
+export const getAppointments = async (req, res) => {
   try {
         const { doctorId, mobile, status, search = "", limit: limitRaw = 50, page: pageRaw = 1, patientClerkId, createdBy } = req.query;
     const limit = Math.min(200, Math.max(1, parseInt(limitRaw, 10) || 50));
@@ -85,7 +84,7 @@ return res.json({ sucess: true,
 }; 
 
 // to get appointments for a patient    
-export const getPatientAppointments = async (req, res) => {
+export const getAppointmentsByPatient = async (req, res) => {
     try{
         const queryCreatedBy = req.query.createdBy || null;
         const clerkUserId = req.auth?.userId || null;
@@ -153,9 +152,9 @@ export const createAppointment = async (req, res) => {
         const existingAppointment = await Appointment.findOne({ doctorId, 
             createdBy:clerkUserId,
              date: String(date), time: String(time),
-            status: {$ne: "cancelled"} }).lean();
+            status: {$ne: "Canceled"} }).lean();
 
-            if(existingBooking){
+            if(existingAppointment){
                 return res.status(409).json({ 
                     success: false, 
                     message: "You already have an appointment with this doctor at the specified date and time."
@@ -434,12 +433,12 @@ export const updateAppointment = async (req, res) => {
 export const cancelAppointment = async (req, res) => {
     try {
         const {id} = req.params;
-        const appt = await Appointment
+        const appt = await Appointment.findById(id);
 
         if(!appt){
             return res.status(404).json({ success: false, message: "Appointment not found" });
         }
-        appt.status = "Cancelled";
+        appt.status = "Canceled";
         await appt.save();
         return res.json({ success: true, message: "Appointment cancelled successfully" ,appointment: appt});
       }
@@ -450,7 +449,7 @@ export const cancelAppointment = async (req, res) => {
       };
 
       // to get statistics of appointments for a doctor
-export const getDoctorStats = async (req, res) => {
+export const getStats = async (req, res) => {
     try {
       const total = await Appointment.countDocuments({ doctorId: req.params.doctorId });
       const paidAgg = await Appointment.aggregate([{ $match: { "payment.status": "Paid" } }, { $group: { _id: null, total: { $sum: "$fees" } } }]);
@@ -531,7 +530,7 @@ return res.json({success :true,
     updateAppointment,
     cancelAppointment,
     getStats,
-    getPatientAppointments,
+    getAppointmentsByPatient,
     getRegisterUserCount
   }
 

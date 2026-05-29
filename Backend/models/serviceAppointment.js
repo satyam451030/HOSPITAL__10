@@ -6,6 +6,11 @@ const serviceAppointmentSchema = new mongoose.Schema({
         default: null,
         index: true
     },
+    createdBy:{
+        type: String,
+        default: null,
+        index: true
+    },
 
   patientName: {
     type: String,
