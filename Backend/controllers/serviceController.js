@@ -98,17 +98,16 @@ export async function createService(req, res) {
 // Get all services
 export async function getAllServices(req, res) {
     try{
-        const list = (await Service.find().sort({ createdAt: -1 })).lean();
-            return res.status(200).json({
-                 success: true,
-                 data: list 
-                });
-
-            }
-            catch(error){
-                console.error("Error fetching services:", error);
-                res.status(500).json({ success: false, message: "Error fetching services" });
-            }
+        const list = await Service.find().sort({ createdAt: -1 }).lean();
+        return res.status(200).json({
+             success: true,
+             data: list 
+            });
+        }
+        catch(error){
+            console.error("Error fetching services:", error);
+            res.status(500).json({ success: false, message: "Error fetching services" });
+        }
 }
 
 // to get service by id
@@ -121,9 +120,8 @@ export async function getServiceById(req, res) {
                  success: false,
                   message: "Service not found"
                  });
-                 return res.status(404).json({ success: false, 
-                    data:service });
         }
+        return res.status(200).json({ success: true, data: service });
     }
     catch(error){
         console.error("Error fetching service:", error);
@@ -195,7 +193,7 @@ export async function deleteService(req, res) {
                 console.warn("Cloudinary delete failed:", err?.message || err);
             }
         }
-        await Service.deleteOne(id);
+        await Service.deleteOne({ _id: id });
         res.status(200).json({ success: true, message: "Service deleted successfully" });
     }
     catch(error){

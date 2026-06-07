@@ -8,7 +8,7 @@ import logo from '../assets/Logo1.png';
 const STORAGE_KEY = "doctorToken_v1";
 
 const Navbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isDoctorLoggedIn, setIsDoctorLoggedIn] = useState(() => {
@@ -21,7 +21,7 @@ const Navbar = () => {
   const location = useLocation();
   const navRef = useRef(null);
   const clerk = useClerk();
-    const { user, isLoaded } = useUser();
+  const { user, isLoaded } = useUser();
 
     // Hide and show navbar on Scroll if greater than 80px from top
 

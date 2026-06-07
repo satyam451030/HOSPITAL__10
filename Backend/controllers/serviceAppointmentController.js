@@ -462,8 +462,9 @@ console.error("cancelServiceAppointment error :" ,error);
         },
       },
       { $addFields: { earning: { $multiply: ["$completed", "$price"] } } },
-      { $project: { name: 1, price: 1, image: "$imageUrl", totalAppointments: 1, completed: 1, canceled: 1, earning: 1 } },
+      // Sort BEFORE $project so createdAt is still available
       { $sort: { createdAt: -1 } },
+      { $project: { name: 1, price: 1, imageUrl: 1, image: "$imageUrl", totalAppointments: 1, completed: 1, canceled: 1, earning: 1 } },
     ]);
    return res.json({
 	success: true,

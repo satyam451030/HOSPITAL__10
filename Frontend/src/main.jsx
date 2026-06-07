@@ -5,17 +5,22 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import { ClerkProvider } from '@clerk/react'
 
-// Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-if (!PUBLISHABLE_KEY) {
-  throw new Error('Missing Publishable Key. Please set VITE_CLERK_PUBLISHABLE_KEY in your environment variables.');
-}
 
-createRoot(document.getElementById('root')).render(
-     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+const AppTree = (
   <BrowserRouter>
     <App />
   </BrowserRouter>
-   </ClerkProvider>
-)
+);
 
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    {PUBLISHABLE_KEY ? (
+      <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
+        {AppTree}
+      </ClerkProvider>
+    ) : (
+      AppTree
+    )}
+  </StrictMode>
+)
