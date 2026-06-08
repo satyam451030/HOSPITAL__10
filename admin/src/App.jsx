@@ -6,7 +6,9 @@ import Add from './pages/Add';
 import List from './pages/List';
 import Appointments from './pages/Appointments';
 import SerDashboard from './pages/SerDashboard';
-import Addser from './pages/Addser';
+import ListService from './pages/ListService';
+import AddSer from './pages/AddSer';
+import SerAppointments from './pages/SerAppointments';
 import { useUser } from '@clerk/clerk-react';
 
 function RequireAuth({ children }) {
@@ -88,7 +90,25 @@ const App = () => {
         path="/add-service"
         element={
           <RequireAuth>
-            <Addser />
+            <AddSer />
+          </RequireAuth>
+        }
+      />
+<Route
+  path="/list-service"
+  element={
+    <RequireAuth>
+      <ListService />
+    </RequireAuth>
+  }
+/>
+      
+       
+       <Route
+        path="/service-appointments"
+        element={
+          <RequireAuth>
+            <SerAppointments />
           </RequireAuth>
         }
       />

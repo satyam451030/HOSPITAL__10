@@ -512,7 +512,7 @@ export const navbarStyles = {
   
   // Center nav items
   centerNavItemBase: "relative flex flex-col lg:text-xs lg:-mx-2 xl:text-md items-center gap-1 px-3 py-2 rounded-lg transition-all text-sm",
-  navItem: "inline-flex items-center gap-2 px-4 py-2 rounded-full transition duration-200 bg-white/60 hover:bg-white text-sm",
+  navItem: "relative z-10 inline-flex items-center gap-2 px-4 py-2 rounded-full transition duration-200 bg-white/60 hover:bg-white text-sm",
   centerNavItemActive: "text-emerald-700 font-semibold",
   centerNavItemInactive: "text-gray-700 hover:text-emerald-600",
   navItemActive: "text-emerald-700 font-semibold",
@@ -544,7 +544,7 @@ export const navbarStyles = {
   mobileLoginButton: "w-full cursor-pointer py-2 rounded-full border bg-white text-emerald-600 font-medium",
   
   // Indicator (for active navigation)
-  indicator: "absolute left-0 top-0 h-full bg-emerald-50 rounded-full shadow-md transition-all duration-300 ease-out",
+  indicator: "absolute left-0 top-0 h-full bg-emerald-50 rounded-full shadow-md transition-all duration-300 ease-out z-0",
   
   // Cursor utilities
   cursorPointer: "cursor-pointer",
