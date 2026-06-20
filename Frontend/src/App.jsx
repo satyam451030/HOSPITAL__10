@@ -106,4 +106,4 @@ const App = () => {
 export default App
 
 
-// Now app.jsx is completed
+// COMPLETED
