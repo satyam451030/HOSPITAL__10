@@ -68,7 +68,7 @@ const items = await Appointment.find(filter)      .sort({ createdAt: -1 })
       .lean();
 
 const total = await Appointment.countDocuments(filter);
-return res.json({ sucess: true,
+return res.json({ success: true,
     appointments: items,
     meta: {
       total,

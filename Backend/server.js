@@ -1,6 +1,8 @@
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
+
+dotenv.config({ override: true });
 
 import { clerkMiddleware } from '@clerk/express';
 import { connectDB } from './config/db.js';
@@ -63,7 +65,7 @@ const startServer = async () => {
         }
 
         console.error('Express error:', err);
-        res.status(500).json({ success: false, message: 'Internal server error' });
+        res.status(500).json({ success: false, message: err.message || 'Internal server error' });
     });
 
     app.listen(PORT, () => {

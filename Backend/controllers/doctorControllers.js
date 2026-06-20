@@ -67,13 +67,13 @@ export const createDoctor = async (req, res) => {
     const body = req.body || {};
     if(!body.name || !body.email || !body.password || !body.specialization){
       return res.status(400).json({
-        sucess: false,
+        success: false,
         message: "Name, email, password and specialization are required"});
     }
     const emailLC = (body.email || "").toLowerCase();
     if(await Doctor.findOne({email: emailLC})){
       return res.status(409).json({
-        sucess: false,
+        success: false,
         message: "Email already exists"
       });
     }
@@ -130,7 +130,7 @@ export const createDoctor = async (req, res) => {
 
   catch (error) {
     console.error("Error in createDoctor:", error);
-    return res.status(500).json({ success: false, message: "Internal server error" });
+    return res.status(500).json({ success: false, message: error.message || "Internal server error" });
   }
 }
 
@@ -349,18 +349,22 @@ export async function loginDoctor(req, res) {
     const { email, password } = req.body || {};
     if (!email || !password) {
       return res.status(400).json({ 
-        success: false,
+        success: false, 
         message: "Email and password are required"
       });
     }
-    const doc = await Doctor.findOne({ email: email.toLowerCase() }).select("+password");
+    console.log("Login attempt - Input Email:", email, "Input Password:", password);
+    const doc = await Doctor.findOne({ email: email.toLowerCase().trim() }).select("+password");
     if (!doc) {
+      console.log("Login fail - Doctor not found for email:", email.toLowerCase().trim());
       return res.status(401).json({ 
         success: false, 
         message: "Invalid email or password" });
     }
 
+    console.log("Doctor found in DB - DB Email:", doc.email, "DB Password:", doc.password);
     if (doc.password !== password) {
+      console.log("Login fail - Password mismatch. DB:", doc.password, "Input:", password);
       return res.status(401).json({ 
         success: false, 
         message: "Invalid email or password" });

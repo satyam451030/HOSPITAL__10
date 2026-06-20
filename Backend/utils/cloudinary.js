@@ -1,6 +1,8 @@
+import dotenv from 'dotenv';
 import {v2 as cloudinary} from "cloudinary";
 import fs from 'fs';
 
+dotenv.config({ override: true });
 
 // configure cloudinary
 cloudinary.config({
@@ -14,7 +16,7 @@ export async function uploadToCloudinary(filePath, folder="Doctor") {
     try {
         const result = await cloudinary.uploader.upload(filePath, {
             folder,
-            resoure_type: "image",
+            resource_type: "image",
         });
 
         // remove the local file after upload
