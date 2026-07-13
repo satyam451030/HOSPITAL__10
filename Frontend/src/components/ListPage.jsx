@@ -12,7 +12,7 @@ import { listPageStyles } from "../assets/dummyStyles";
 import DoctorNavbar from "./DoctorNavbar";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://medi-b-backend.onrender.com";
 
 // ─── Pure helper functions ─────────────────────────────────────────────────────
 

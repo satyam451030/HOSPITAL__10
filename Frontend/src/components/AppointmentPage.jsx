@@ -17,7 +17,7 @@ import {
 } from "../assets/dummyStyles";
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://medi-b-backend.onrender.com";
 const API = axios.create({
     baseURL: API_BASE})
 

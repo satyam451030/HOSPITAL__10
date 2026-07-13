@@ -11,7 +11,7 @@ import hd6 from '../assets/HD6.png'
 import hd7 from '../assets/HD7.png'
 import hd8 from '../assets/HD8.png'
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const API_BASE = import.meta.env.VITE_API_BASE_URL || 'https://medi-b-backend.onrender.com'
 const fallbackImages = [hd1, hd2, hd3, hd4, hd5, hd6, hd7, hd8]
 
 const getItemsFromPayload = (payload) => {

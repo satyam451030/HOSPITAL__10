@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { loginPageStyles, toastStyles } from "../assets/dummyStyles";
 import logo from "../assets/Logo1.png";
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = "https://medi-b-backend.onrender.com";
 const STORAGE_KEY = "doctorToken_v1";
 
 const LoginPage = () => {

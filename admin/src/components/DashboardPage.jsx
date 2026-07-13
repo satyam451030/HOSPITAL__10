@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 // import StatCard from '../components/StatCard';
 
-const API_BASE = import.meta.env.VITE_API_BASE || 'http://localhost:5000'
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://medi-b-backend.onrender.com'
 const PATIENT_COUNT_API =
 `${API_BASE}/api/appointments/patients/count`
 

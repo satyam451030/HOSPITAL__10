@@ -233,7 +233,7 @@ const AddPage = () => {
 
       if (form.imageFile) fd.append("image", form.imageFile);
 
-      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+      const API_BASE = import.meta.env.VITE_API_BASE || "https://medi-b-backend.onrender.com";
 
       const res = await fetch(`${API_BASE}/api/doctors`, {
         method: "POST",

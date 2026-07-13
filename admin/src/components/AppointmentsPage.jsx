@@ -7,7 +7,7 @@ import {
   Clock
 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://medi-b-backend.onrender.com";
 
 function formatDateISO(iso) {
   try {

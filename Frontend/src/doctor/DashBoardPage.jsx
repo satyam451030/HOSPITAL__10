@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { dashboardStyles } from "../assets/dummyStyles";
 
-const API_BASE = "http://localhost:5000/";
+const API_BASE = "https://medi-b-backend.onrender.com";
 
 function parseDateTime(date, time) {
   return new Date(`${date}T${time}:00`);

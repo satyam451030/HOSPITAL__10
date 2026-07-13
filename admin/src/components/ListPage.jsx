@@ -77,7 +77,7 @@ function getSortedScheduleDates(scheduleLike) {
 }
 
 const ListPage = () => {
-  const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+  const API_BASE = import.meta.env.VITE_API_BASE || "https://medi-b-backend.onrender.com";
 
    const [doctors, setDoctors] = useState([]);
   const [expanded, setExpanded] = useState(null);

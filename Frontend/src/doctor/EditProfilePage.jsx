@@ -59,7 +59,7 @@ export default function EditProfilePage({ apiBase }) {
   const navigate = useNavigate();
   const API_BASE = import.meta.env.VITE_API_BASE_URL
     ? `${import.meta.env.VITE_API_BASE_URL}/api/doctors`
-    : "http://localhost:5000/api/doctors";
+    : "https://medi-b-backend.onrender.com/api/doctors";
 
   const [doc, setDoc] = useState(null);
   const [editing, setEditing] = useState(false);
