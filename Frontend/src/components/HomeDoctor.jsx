@@ -165,10 +165,10 @@ const HomeDoctor = () => {
 
                     <div className={homeDoctorsStyles.experienceContainer}>
                       <span className={homeDoctorsStyles.experienceBadge}>
-                        <Clock3 className="h-4 w-4 text-emerald-700" />
+                        <Clock3 className="h-4 w-4 text-orange-700" />
                         {doctor.experience}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700">
+                      <span className="inline-flex items-center gap-1 text-xs font-semibold text-orange-700">
                         <UserCheck className="h-4 w-4" />
                         Verified
                       </span>

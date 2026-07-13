@@ -1033,8 +1033,8 @@ function sortSlotsForDisplay(slots = []) {
                         onClick={() => startEdit(svc)}
                         className={`${s.editButton} ${s.cursorPointer}`}
                       >
-                        <Edit2 className="w-4 h-4 text-emerald-600" />{" "}
-                        <span className={s.textEmerald700}>Edit</span>
+                        <Edit2 className="w-4 h-4 text-orange-600" />{" "}
+                        <span className={s.textOrange700}>Edit</span>
                       </button>
 
                       <button

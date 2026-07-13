@@ -365,8 +365,8 @@ export default function DashboardPage({ apiBase }) {
             title="Total Appointments"
             value={totalAppointments}
             icon={<Calendar className="w-5 h-5" />}
-            accentTop={dashboardStyles.accentTopEmerald}
-            accentBottom={dashboardStyles.accentBottomEmerald}
+            accentTop={dashboardStyles.accentTopOrange}
+            accentBottom={dashboardStyles.accentBottomOrange}
           />
 
           <StatCard
@@ -381,8 +381,8 @@ export default function DashboardPage({ apiBase }) {
             title="Completed"
             value={completedAppointments}
             icon={<CheckCircle className="w-5 h-5" />}
-            accentTop={dashboardStyles.accentTopEmeraldLight}
-            accentBottom={dashboardStyles.accentBottomEmerald}
+            accentTop={dashboardStyles.accentTopOrangeLight}
+            accentBottom={dashboardStyles.accentBottomOrange}
           />
 
           <StatCard
@@ -508,8 +508,8 @@ function StatCard({
   title,
   value,
   icon,
-  accentTop = dashboardStyles.accentTopEmeraldLight,
-  accentBottom = dashboardStyles.accentBottomEmerald,
+  accentTop = dashboardStyles.accentTopOrangeLight,
+  accentBottom = dashboardStyles.accentBottomOrange,
 }) {
   return (
     <div className={dashboardStyles.statCard}>

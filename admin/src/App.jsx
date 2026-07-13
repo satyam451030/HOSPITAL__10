@@ -18,16 +18,16 @@ function RequireAuth({ children }) {
 
   if (!isSignedIn) {
     return (
-      <div className="min-h-screen font-mono flex items-center justify-center bg-linear-to-br from-emerald-50 via-green-50 to-emerald-100 px-4">
+      <div className="min-h-screen font-mono flex items-center justify-center bg-linear-to-br from-orange-50 via-amber-50 to-orange-100 px-4">
         <div className="text-center">
-          <p className="text-emerald-800 font-semibold text-lg sm:text-2xl mb-4">
+          <p className="text-orange-800 font-semibold text-lg sm:text-2xl mb-4">
             Please sign in to view this page
           </p>
 
           <div className="flex justify-center">
             <Link
               to="/"
-              className="px-4 py-2 text-sm rounded-full bg-emerald-600 text-white shadow-sm hover:bg-emerald-700 hover:shadow-md transition-all duration-300"
+              className="px-4 py-2 text-sm rounded-full bg-orange-600 text-white shadow-sm hover:bg-orange-700 hover:shadow-md transition-all duration-300"
             >
               Home
             </Link>

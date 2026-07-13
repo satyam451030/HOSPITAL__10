@@ -440,7 +440,7 @@ function MobileDoctorCard({ d }) {
 
     <div>
     <div className={s.mobileStatLabel}>Done</div>
-    <div className={s.mobileStatValue + " " + s.textEmerald600}>
+    <div className={s.mobileStatValue + " " + s.textOrange600}>
       {d.appointments.completed} </div>
     </div>
 

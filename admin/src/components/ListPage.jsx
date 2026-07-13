@@ -215,7 +215,7 @@ const ListPage = () => {
           onClick={() => applyStatusFilter("available")}
           className={doctorListStyles.filterButton(
             filterStatus === "available",
-            "emerald"
+            "orange"
           )}
         >
           Available

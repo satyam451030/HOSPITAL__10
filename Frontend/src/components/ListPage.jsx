@@ -636,7 +636,7 @@ const List = () => {
             <button
               onClick={fetchAppointments}
               title="Refresh"
-              className="p-2 rounded-full border border-emerald-200 bg-white text-emerald-600 hover:bg-emerald-50 hover:shadow-sm transition"
+              className="p-2 rounded-full border border-orange-200 bg-white text-orange-600 hover:bg-orange-50 hover:shadow-sm transition"
               aria-label="Refresh appointments"
             >
               <RefreshCw className="w-4 h-4" />
@@ -661,8 +661,8 @@ const List = () => {
         {loading && (
           <div className={listPageStyles.loadingContainer}>
             <div className="flex flex-col items-center gap-3">
-              <div className="w-10 h-10 border-4 border-emerald-200 border-t-emerald-600 rounded-full animate-spin" />
-              <p className="text-emerald-700 font-medium">
+              <div className="w-10 h-10 border-4 border-orange-200 border-t-orange-600 rounded-full animate-spin" />
+              <p className="text-orange-700 font-medium">
                 Loading appointments…
               </p>
             </div>
@@ -671,8 +671,8 @@ const List = () => {
 
         {/* Empty state */}
         {!loading && filtered.length === 0 && (
-          <div className="flex flex-col items-center justify-center py-20 gap-4 text-emerald-700">
-            <User className="w-14 h-14 text-emerald-300" />
+          <div className="flex flex-col items-center justify-center py-20 gap-4 text-orange-700">
+            <User className="w-14 h-14 text-orange-300" />
             <p className="text-lg font-semibold">No appointments found</p>
             {(search || statusFilter) && (
               <button
@@ -680,7 +680,7 @@ const List = () => {
                   setSearch("");
                   setStatusFilter("");
                 }}
-                className="text-sm text-emerald-600 underline"
+                className="text-sm text-orange-600 underline"
               >
                 Clear filters
               </button>

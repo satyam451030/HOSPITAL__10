@@ -369,7 +369,7 @@ export default function AddService({ serviceId: propServiceId }) {
       <div className={addServiceStyles.container.form}>
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Header */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-emerald-50 pb-4">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-orange-50 pb-4">
             <div>
               <h2 className={addServiceStyles.header.title}>
                 {serviceId ? "Edit Service" : "Add New Service"}
@@ -415,15 +415,15 @@ export default function AddService({ serviceId: propServiceId }) {
                     />
                   ) : (
                     <div className={addServiceStyles.imageUpload.placeholder}>
-                      <Plus className="w-8 h-8 mb-2 text-emerald-400" />
-                      <span className="text-xs font-medium text-emerald-600">Upload Cover Image</span>
+                      <Plus className="w-8 h-8 mb-2 text-orange-400" />
+                      <span className="text-xs font-medium text-orange-600">Upload Cover Image</span>
                     </div>
                   )}
                 </div>
 
                 <div className="flex gap-2 w-full">
                   <label className={addServiceStyles.buttons.uploadImage + " cursor-pointer"}>
-                    <Plus className="w-4 h-4 text-emerald-600" />
+                    <Plus className="w-4 h-4 text-orange-600" />
                     <span>Upload</span>
                     <input
                       type="file"
@@ -587,7 +587,7 @@ export default function AddService({ serviceId: propServiceId }) {
                 className={addServiceStyles.slots.container(errors.slots)}
               >
                 <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2 text-emerald-700 font-medium">
+                  <div className="flex items-center gap-2 text-orange-700 font-medium">
                     <Calendar className="w-5 h-5" /> Slots & Schedule
                   </div>
                   <div className="flex items-center gap-2">

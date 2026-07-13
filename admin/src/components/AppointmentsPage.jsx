@@ -350,9 +350,9 @@ const AppointmentPage = () => {
                     </span>
                   </div>
 
-                  <div className="border-t border-emerald-50 pt-2">
+                  <div className="border-t border-orange-50 pt-2">
                     <p className={pageStyles.doctorInfo}>
-                      Dr. <span className="font-semibold text-emerald-800">{appt.doctorName}</span>
+                      Dr. <span className="font-semibold text-orange-800">{appt.doctorName}</span>
                     </p>
                     <p className={`${pageStyles.doctorInfo} ${pageStyles.doctorSpeciality}`}>
                       {appt.speciality}
@@ -370,7 +370,7 @@ const AppointmentPage = () => {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between border-t border-emerald-50 pt-3 mt-auto">
+                  <div className="flex items-center justify-between border-t border-orange-50 pt-3 mt-auto">
                     <div>
                       <span className={pageStyles.feeLabel}>Fee</span>
                       <span className={pageStyles.feeAmount}>₹ {appt.fee}</span>

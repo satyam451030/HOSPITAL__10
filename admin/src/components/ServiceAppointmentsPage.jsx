@@ -785,7 +785,7 @@ const ServiceAppointmentsPage = () => {
   </div>
    <div className={serviceAppointmentsStyles.legendItem}>
     <div
-      className={`${serviceAppointmentsStyles.legendDot} bg-emerald-400`}
+      className={`${serviceAppointmentsStyles.legendDot} bg-orange-400`}
     />
     <span>Confirmed</span>
   </div>

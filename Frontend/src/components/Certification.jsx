@@ -50,7 +50,7 @@ const Certification = () => {
           </p>
           <div className={certificationStyles.badgeContainer}>
             <span className={certificationStyles.badgeDot}></span>
-            <ShieldCheck className="w-4 h-4 mr-2 text-green-700" />
+            <ShieldCheck className="w-4 h-4 mr-2 text-amber-700" />
             <span className={certificationStyles.badgeText}>Accredited and trusted care ecosystem</span>
           </div>
         </div>
@@ -75,13 +75,13 @@ const Certification = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-emerald-800">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/70 px-4 py-2 shadow-sm">
-            <Award className="w-4 h-4 text-emerald-600" />
+        <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-orange-800">
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/70 px-4 py-2 shadow-sm">
+            <Award className="w-4 h-4 text-orange-600" />
             Verified Quality
           </span>
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white/70 px-4 py-2 shadow-sm">
-            <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-orange-200 bg-white/70 px-4 py-2 shadow-sm">
+            <ShieldCheck className="w-4 h-4 text-orange-600" />
             Secure Appointments
           </span>
         </div>

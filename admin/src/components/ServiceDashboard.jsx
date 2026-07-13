@@ -330,7 +330,7 @@ export default function ServiceDashboard({ services: servicesProp = null }) {
         {/* Search */}
         <div className={serviceDashboardStyles.search.container}>
           <div className={serviceDashboardStyles.search.inputContainer}>
-            <Search size={16} className="text-emerald-400" />
+            <Search size={16} className="text-orange-400" />
             <input
               type="text"
               placeholder="Search service or price"
@@ -410,7 +410,7 @@ export default function ServiceDashboard({ services: servicesProp = null }) {
                       <div className={serviceDashboardStyles.table.tabletCell}>
                         {s.totalAppointments}
                       </div>
-                      <div className={`${serviceDashboardStyles.table.tabletCell} text-emerald-700 font-medium`}>
+                      <div className={`${serviceDashboardStyles.table.tabletCell} text-orange-700 font-medium`}>
                         {s.completed}
                       </div>
                       <div className={`${serviceDashboardStyles.table.tabletCell} text-red-500 font-medium`}>
@@ -444,7 +444,7 @@ export default function ServiceDashboard({ services: servicesProp = null }) {
                         {s.totalAppointments}
                       </div>
 
-                      <div className={`${serviceDashboardStyles.table.desktopCenterCell(1)} text-emerald-700 font-medium`}>
+                      <div className={`${serviceDashboardStyles.table.desktopCenterCell(1)} text-orange-700 font-medium`}>
                         {s.completed}
                       </div>
 
@@ -479,16 +479,16 @@ export default function ServiceDashboard({ services: servicesProp = null }) {
                           </div>
 
                           <div className={serviceDashboardStyles.table.mobileStatsContainer}>
-                            <div className={serviceDashboardStyles.table.mobileStatItem("emerald")}>
+                            <div className={serviceDashboardStyles.table.mobileStatItem("orange")}>
                               <Calendar size={14} />
                               <span className="leading-none">
                                 {s.totalAppointments} Appointments
                               </span>
                             </div>
 
-                            <div className={serviceDashboardStyles.table.mobileStatItem("emerald")}>
+                            <div className={serviceDashboardStyles.table.mobileStatItem("orange")}>
                               <CheckCircle size={14} />
-                              <span className="leading-none text-emerald-700">
+                              <span className="leading-none text-orange-700">
                                 {s.completed} Completed
                               </span>
                             </div>
@@ -500,7 +500,7 @@ export default function ServiceDashboard({ services: servicesProp = null }) {
                               </span>
                             </div>
 
-                            <div className={serviceDashboardStyles.table.mobileStatItem("emerald")}>
+                            <div className={serviceDashboardStyles.table.mobileStatItem("orange")}>
                               <BadgeIndianRupee size={14} />
                               <span className="leading-none">
                                 Total Earning: {formatCurrency(earning)}

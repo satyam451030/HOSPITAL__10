@@ -49,20 +49,20 @@ const Banner = () => {
                                     <span className={`block ${bannerStyles.taglineHighlight}`}>At your Fingertips</span>
                                 </p>
                                 <div className={bannerStyles.featuresGrid}>
-                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderGreen}`}>
+                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderAmber}`}>
                                         <Award className={bannerStyles.featureIcon} />
                                         <span className={bannerStyles.featureText}>
                                             Certified Specialists
                                         </span>
                                     </div>
 
-                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderBlue}`}>
+                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderOrange}`}>
                                         <Clock className={bannerStyles.featureIcon} />
                                         <span className={bannerStyles.featureText}>
                                             24/7 Availability
                                         </span>
                                     </div>
-                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderEmerald}`}>
+                                    <div className={`${bannerStyles.featureItem}  ${bannerStyles.featureBorderOrange}`}>
                                         <ShieldUser className={bannerStyles.featureIcon} />
                                         <span className={bannerStyles.featureText}>
                                             Safe &amp; Secure

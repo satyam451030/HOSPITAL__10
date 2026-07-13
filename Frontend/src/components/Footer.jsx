@@ -212,7 +212,7 @@ const Footer = () => {
         <div className={footerStyles.bottomSection}>
           <p className={footerStyles.copyright}>Copyright {currentYear} Medi-B. All rights reserved.</p>
           <p className={footerStyles.designerText}>
-            Built with <Heart className="h-4 w-4 fill-emerald-500 text-emerald-500" /> by{' '}
+            Built with <Heart className="h-4 w-4 fill-orange-500 text-orange-500" /> by{' '}
             <a
               className={footerStyles.designerLink}
               href="https://www.linkedin.com/company/hexagondigtial-services/"

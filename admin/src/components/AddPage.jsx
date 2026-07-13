@@ -476,7 +476,7 @@ return (
      {/* SCHEDULE */}
           <div className={s.scheduleContainer + " md:col-span-2"}>
             <div className={s.scheduleHeader}>
-              <Calendar className="text-emerald-600" />
+              <Calendar className="text-orange-600" />
               <p className={s.scheduleTitle}>Add Schedule Slots</p>
             </div>
 

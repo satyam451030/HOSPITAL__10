@@ -420,7 +420,7 @@ export default function EditProfilePage({ apiBase }) {
                   {/* Patients */}
                   <div className={styles.statItem}>
                     <User
-                      className={`${styles.statIcon} ${styles.statEmeraldIcon}`}
+                      className={`${styles.statIcon} ${styles.statOrangeIcon}`}
                     />
                     <div className="flex items-center gap-3">
                       <div className="flex flex-col">
@@ -452,7 +452,7 @@ export default function EditProfilePage({ apiBase }) {
                   {/* Success */}
                   <div className={styles.statItem}>
                     <CheckCircle
-                      className={`${styles.statIcon} ${styles.statEmeraldIcon}`}
+                      className={`${styles.statIcon} ${styles.statOrangeIcon}`}
                     />
                     <div className="flex flex-col">
                       <div className={styles.statLabel}>Success</div>
