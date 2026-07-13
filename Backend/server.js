@@ -15,8 +15,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const allowedOrigins = [
-    "http://localhost:5173",
-    "http://localhost:5174",
+    "https://medi-b-frontend.onrender.com",
+    "https://medi-b-admin0.onrender.com",
 ];
 
 const corsOptions = {
